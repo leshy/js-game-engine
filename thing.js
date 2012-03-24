@@ -8,10 +8,14 @@ var indexToV = function(i) {
 }
 
 
+
+
 var Obj = Backbone.Model.extend4000(
     GraphNode,
     Point,
     {
+
+        defaults: { size: 1 },
         initialize: function() {
         },
         
@@ -33,7 +37,6 @@ var Obj = Backbone.Model.extend4000(
             }, makeV(0,0)).normalize()
         }
     })
-
 
 var Atomic = Obj.extend4000({
     defaults: { name: 'defaultmaterial', size : 1, density: 1 },    
