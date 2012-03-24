@@ -27,8 +27,8 @@ function start() {
     var paper = Raphael("canvas", 600, 600)
     paper.clear();
     window.paper = paper
-    var x = new Obj({x : 10, y: 10, acceleration: [1,1] })
-    var xv = new ObjView({model:x,paper:paper})
+    var x = new Thing({x : 10, y: 10, acceleration: [1,1], size: 3 })
+    var xv = new ThingView({model:x,paper:paper})
     var vv = new VectViewArrow({model: x.velocity(), paper: paper })
 
     window.x = x

@@ -9,10 +9,9 @@ var indexToV = function(i) {
 
 
 
-
-var Obj = Backbone.Model.extend4000(
-    GraphNode,
+var Thing = Backbone.Model.extend4000(
     Point,
+    GraphNode,
     {
 
         defaults: { size: 1 },
@@ -38,10 +37,9 @@ var Obj = Backbone.Model.extend4000(
         }
     })
 
-var Atomic = Obj.extend4000({
+var AtomicThing = Thing.extend4000({
     defaults: { name: 'defaultmaterial', size : 1, density: 1 },    
     weight: function() { return this.get('density') * this.get('size') }
 })
-
 
 

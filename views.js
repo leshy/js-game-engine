@@ -14,16 +14,15 @@ var WorldWindow = Point.extend4000({
 
 
 
-var WorldChunk = Obj.extend4000({
+var WorldChunk = Quad.extend4000({
     initialize: function() {
         
     }
 })
 
-WorldView.addchild(View)
 
 
-var ObjView = Backbone.View.extend( {
+var ThingView = Backbone.View.extend( {
     initialize: function(opt) {
         var self = this;
         this.paper = opt.paper
