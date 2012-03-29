@@ -3,6 +3,15 @@ function makeV(x,y) {
     return new Vector({x: x, y: y})
 }
 
+
+function randomNum(x) {
+    return Math.round(Math.random() * x)
+}
+
+function randomV(x,y) {
+    return makeV(randomNum(x),randomNum(y))
+}
+
 var Vector = Backbone.Model.extend4000({
     defaults: { name: 'vector' },
 
@@ -60,6 +69,7 @@ var Vector = Backbone.Model.extend4000({
             return makeV(0, 0);
         }
     },
+
     normalize: function(){
         var x=this.x(), y=this.y();
         var length = Math.sqrt(x*x + y*y);
@@ -83,10 +93,12 @@ var Vector = Backbone.Model.extend4000({
     copy: function(){
         return makeV(this.x(),this.y())
     },
+
     zero: function(){
         this.set({x:0,y:0})
         return this
     },
+
     show: function() {
         return [ this.x(), this.y() ]
     }

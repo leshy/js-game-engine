@@ -1,19 +1,17 @@
-
-
-var indexToV = function(i) {
-    if (i == 0) { return makeV(-1, 1) }
-    if (i == 1) { return makeV( 1, 1) }
-    if (i == 2) { return makeV( 1,-1) }
-    if (i == 3) { return makeV(-1,-1) }
-}
-
-
+//
+// a thing can be assembled from other things
+// thing has a center of mass, velocity, acceleration and things like that.
+//
+// thing that is not assembled from other things is called AtomicThing
+//
+// AtomicThing is subclassed by a Material. Material reacts to other Materials
+// is destructible, has mass, friction, and some other stuff I'm sure
+//
 
 var Thing = Backbone.Model.extend4000(
-    Point,
-    GraphNode,
+    Quad,
+    ClassicalMechanics,
     {
-
         defaults: { size: 1 },
         initialize: function() {
         },
@@ -28,11 +26,12 @@ var Thing = Backbone.Model.extend4000(
 
         // calculate center of gravity
         center: function() {
+            var self = this;
             return this.children.reduce(function(center,child,index) { 
                 if (!child) { return center }
-                console.log(indexToV(index).show())
+                console.log(self.indexToPos(index).show())
                 console.log('center',center.show())
-                return center.iadd( indexToV(index) )
+                return center.iadd( self.indexToPos(index) )
             }, makeV(0,0)).normalize()
         }
     })
@@ -41,5 +40,4 @@ var AtomicThing = Thing.extend4000({
     defaults: { name: 'defaultmaterial', size : 1, density: 1 },    
     weight: function() { return this.get('density') * this.get('size') }
 })
-
 

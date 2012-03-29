@@ -1,0 +1,3 @@
+collision detection?
+zoom out removing details?
+destructability?
